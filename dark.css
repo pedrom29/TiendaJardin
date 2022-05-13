@@ -2,14 +2,14 @@ body {
     transition: .3s ease all;
 }
 
-
 #zoomC {
     width: 600px;
     height: 600px;
     background: url("https://cdn.shopify.com/s/files/1/0146/1095/6388/products/bird-of-paradise-10-hojas-155-cm-d7026854-2d59-4924-9a96-f56a30c090e6_f74a5fca-c245-4a09-8c4b-c84403a9d5f7_2000x.jpg?v=1643645961");
     background-position: center;
     background-size: cover;
-  }
+
+}
 
 
 .modo {   
@@ -66,6 +66,61 @@ body {
 
 
 
+.dark .container {
+	background-color: #1a1919;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px #474646;
+	overflow: hidden;
+	width: 400px;
+	max-width: 100%;
+}
+
+
+
+.dark .form-select {
+    background-color: #1a1919;
+    color: white;
+
+}
+
+.dark .header {
+    border-bottom: 1px solid #000000;
+    background-color: #1a1919;
+}
+.dark .form {
+    
+    background-color: #1a1919;
+}
+
+.dark .form-control {
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+	position: relative;
+    background-color: #1a1919;
+    color: white;
+}
+
+.dark .form-control input:focus {
+	outline: 0;
+	border-color: rgb(116, 21, 21);
+}
+
+.dark .form button {
+	background-color: #3538bb;
+	border: 2px solid #222dc4;
+	border-radius: 4px;
+	color: #fff;
+	display: block;
+	font-family: inherit;
+	font-size: 16px;
+	padding: 10px;
+	margin-top: 20px;
+	width: 100%;
+}
+
+
+
+
 
 .dark body {
     background-color: white;
@@ -74,6 +129,12 @@ body {
 .dark h5{
     color: white;
 }
+
+
+.dark h2{
+    color: white;
+}
+
 .dark h1{
     color: white;
 }
