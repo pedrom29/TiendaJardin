@@ -21,6 +21,7 @@ if(localStorage.getItem('dark-mode') === 'true' ) {
     btnSwitch.classList.remove('active');
 }
 
+
 // CREDITS : https://www.cssscript.com/image-zoom-pan-hover-detail-view/
 var addZoom = (target) => {
     // (A) GET CONTAINER + IMAGE SOURCE
@@ -62,6 +63,7 @@ var addZoom = (target) => {
    
   // (C) ATTACH FOLLOW ZOOM
   window.onload = () => { addZoom("zoomC"); };
+
 
 
 
