@@ -22,12 +22,17 @@ if(localStorage.getItem('dark-mode') === 'true' ) {
 }
 
 
+
 var addZoom = (target) => {
     
+
+var addZoom = (target) => {
+
     let container = document.getElementById(target),
         imgsrc = container.currentStyle || window.getComputedStyle(container, false);
         imgsrc = imgsrc.backgroundImage.slice(4, -1).replace(/"/g, "");
    
+
     
     let img = new Image();
     img.src = imgsrc;
@@ -36,7 +41,17 @@ var addZoom = (target) => {
       let ratio = img.naturalHeight / img.naturalWidth,
           percentage = ratio * 100 + "%";
    
-      // ATTACH ZOOM ON MOUSE MOVE
+
+    // (B) LOAD IMAGE + ATTACH ZOOM
+    let img = new Image();
+    img.src = imgsrc;
+    img.onload = () => {
+      // (B1) CALCULATE ZOOM RATIO
+      let ratio = img.naturalHeight / img.naturalWidth,
+          percentage = ratio * 100 + "%";
+   
+      // (B2) ATTACH ZOOM ON MOUSE MOVE
+
       container.onmousemove = (e) => {
         let rect = e.target.getBoundingClientRect(),
             xPos = e.clientX - rect.left,
@@ -50,7 +65,9 @@ var addZoom = (target) => {
         });
       };
    
-      //RESET ZOOM 
+
+      // (B3) RESET ZOOM ON MOUSE LEAVE
+
       container.onmouseleave = (e) => {
         Object.assign(container.style, {
           backgroundPosition: "center",
@@ -60,7 +77,9 @@ var addZoom = (target) => {
     }
   };
    
-  //  ZOOM
+
+  // (C) ATTACH FOLLOW ZOOM
+
   window.onload = () => { addZoom("zoomC"); };
 
 
@@ -139,11 +158,5 @@ function login() {
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
+
+
