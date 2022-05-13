@@ -1,12 +1,39 @@
-let modo=document.getElementById("modo");
-let body=document.body;
+const btnSwitch = document.querySelector('#modo');
 
-modo.addEventListener("click", function(){
-    let val=body.classList.toggle("dark")
-    localStorage.setItem("modo",val)
-})
+btnSwitch.addEventListener('click', () => {
+	document.body.classList.toggle('dark');
+	btnSwitch.classList.toggle('active');
 
-let valor=localStorage.getItem("modo")
+
+    if(document.body.classList.contains('dark')){
+        localStorage.setItem('dark-mode', 'true');
+    }else {
+        localStorage.setItem('dark-mode', 'false');
+    }
+});
+
+
+if(localStorage.getItem('dark-mode') === 'true' ) {
+    document.body.classList.add('dark');
+    btnSwitch.classList.add('active');
+}else {
+    document.body.classList.remove('dark');
+    btnSwitch.classList.remove('active');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if (valor=="true") {
     body.classList.add("dark")
