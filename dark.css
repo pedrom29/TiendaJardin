@@ -1,0 +1,64 @@
+#modo{
+    width: 2px;
+    font-size: 40px;
+    margin: auto;
+    cursor: pointer;
+}
+.dark{
+    background: rgb(0, 0, 0);
+}
+.dark body {
+    background-color: white;
+    color: black;
+}
+.dark h5{
+    color: white;
+}
+.dark h1{
+    color: white;
+}
+.dark h4{
+    color: white;
+}
+.dark h3{
+    color: rgb(255, 255, 255);
+}
+.dark #modo{
+    color: orange;
+}
+.dark .card{
+    background: rgb(0, 0, 0);
+}
+.dark a{
+    color: rgb(255, 255, 255);
+}
+.dark span{
+    color: white;
+}
+.dark .container-fluid{
+    background: rgb(0, 0, 0);
+}
+.dark .bg-light{
+    color: rgb(0, 0, 0);
+}
+.dark .dropdown-item{
+    color: rgb(0, 0, 0);
+}
+.dark .col-md-6{
+    color: rgb(255, 255, 255);
+}
+.dark .col-md-4{
+    color: rgb(255, 255, 255);
+}
+.dark .col-md-2{
+    color: rgb(255, 255, 255);
+}
+.dark .mb-3{
+    color: rgb(255, 255, 255);
+}
+.dark svg{
+    color: rgb(255, 255, 255);
+}
+.dark li{
+    color: rgb(255, 255, 255);
+}
