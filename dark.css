@@ -8,9 +8,7 @@ body {
     background: url("https://cdn.shopify.com/s/files/1/0146/1095/6388/products/bird-of-paradise-10-hojas-155-cm-d7026854-2d59-4924-9a96-f56a30c090e6_f74a5fca-c245-4a09-8c4b-c84403a9d5f7_2000x.jpg?v=1643645961");
     background-position: center;
     background-size: cover;
-
 }
-
 
 .modo {   
     background: #343D5B;
@@ -63,7 +61,6 @@ body {
 .dark{
     background: rgb(0, 0, 0);
 }
-
 
 
 .dark .container {
@@ -121,7 +118,6 @@ body {
 
 
 
-
 .dark body {
     background-color: white;
     color: gray;
@@ -130,11 +126,9 @@ body {
     color: white;
 }
 
-
 .dark h2{
     color: white;
 }
-
 .dark h1{
     color: white;
 }
