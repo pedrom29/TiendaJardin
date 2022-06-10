@@ -1,0 +1,183 @@
+body {
+    transition: .3s ease all;
+}
+
+#zoomC {
+    width: 600px;
+    height: 600px;
+    background: url("https://cdn.shopify.com/s/files/1/0146/1095/6388/products/bird-of-paradise-10-hojas-155-cm-d7026854-2d59-4924-9a96-f56a30c090e6_f74a5fca-c245-4a09-8c4b-c84403a9d5f7_2000x.jpg?v=1643645961");
+    background-position: center;
+    background-size: cover;
+}
+
+.modo {   
+    background: #343D5B;
+    cursor: pointer;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    display: flex;
+    outline: none;
+    
+}
+
+.modo span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #fff;
+}
+
+
+.modo::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #F1F1F1;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all;
+    -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modo.active {
+    background: orange;
+    color: #000;
+}
+
+.modo.active::after {
+    right: 0;
+    left: unset;
+}
+
+.dark{
+    background: rgb(0, 0, 0);
+}
+
+
+.dark .container {
+	background-color: #1a1919;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px #474646;
+	overflow: hidden;
+	width: 400px;
+	max-width: 100%;
+}
+
+
+
+.dark .form-select {
+    background-color: #1a1919;
+    color: white;
+
+}
+
+.dark .header {
+    border-bottom: 1px solid #000000;
+    background-color: #1a1919;
+}
+.dark .form {
+    
+    background-color: #1a1919;
+}
+
+.dark .form-control {
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+	position: relative;
+    background-color: #1a1919;
+    color: white;
+}
+
+.dark .form-control input:focus {
+	outline: 0;
+	border-color: rgb(116, 21, 21);
+}
+
+.dark .form button {
+	background-color: #3538bb;
+	border: 2px solid #222dc4;
+	border-radius: 4px;
+	color: #fff;
+	display: block;
+	font-family: inherit;
+	font-size: 16px;
+	padding: 10px;
+	margin-top: 20px;
+	width: 100%;
+}
+
+
+
+
+.dark body {
+    background-color: white;
+    color: gray;
+}
+.dark h5{
+    color: white;
+}
+
+.dark h2{
+    color: white;
+}
+.dark h1{
+    color: white;
+}
+.dark h4{
+    color: white;
+}
+.dark h3{
+    color: rgb(255, 255, 255);
+}
+.dark #modo{
+    color: orange;
+}
+.dark .card{
+    background: rgb(24, 21, 21);
+}
+.dark a{
+    color: rgb(255, 255, 255);
+}
+.dark span{
+    color: white;
+}
+.dark .container-fluid{
+    background: rgb(0, 0, 0);
+}
+.dark .bg-light{
+    color: rgb(0, 0, 0);
+}
+.dark .dropdown-item{
+    color: rgb(0, 0, 0);
+}
+.dark .col-md-6{
+    color: rgb(255, 255, 255);
+}
+.dark .col-md-4{
+    color: rgb(255, 255, 255);
+}
+.dark .col-md-2{
+    color: rgb(255, 255, 255);
+}
+.dark .mb-3{
+    color: rgb(255, 255, 255);
+}
+.dark svg{
+    color: rgb(255, 255, 255);
+}
+.dark li{
+    color: rgb(255, 255, 255);
+}
+.dark p{
+    color: white;
+}
+
