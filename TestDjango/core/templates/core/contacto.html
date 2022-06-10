@@ -21,45 +21,52 @@
   
 </head>
 <body class="bg">
-    <nav class="navbar navbar-expand-lg navbar">
-        <div class="container-fluid">
-          <img src="{% static 'core/img/logo.png' %}" class="d-block w-2" alt="...">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span><i class="fas fa-bars"></i></i></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'ubication' %}">Ubicación</a>
-              </li>       
-              <li class="nav-item">
-                <a class="nav-link" href="#footer">Redes</a>
-              </li>                  
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Registrate
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="{% url 'register' %}">Registrarse</a></li>
-                  <li><a class="dropdown-item" href="{% url 'login' %}">Iniciar sesión</a></li>
-                </ul>
-              </li>               
+  <nav class="navbar navbar-expand-lg navbar">
+      
+    <div class="container-fluid">
+        <img src="{% static 'core/img/logo.png' %}" class="d-block w-2" alt="...">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'ubication' %}">Ubicación</a>
+          </li>       
+          <li class="nav-item">
+            <a class="nav-link" href="#footer">Redes</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="navbar-item">
+            <a href="{% url 'logout' %}" class="nav-link">
+              <span ><i class="fas fa-sign-in-alt"></i>cerrar sesión</span>
+            </a>
+          </li>
+          {% else %}                  
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Registrate
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'register' %}">Registrarse</a></li>
+              <li><a class="dropdown-item" href="{% url 'login' %}">Iniciar sesión</a></li>
             </ul>
-            <button class="modo me-2 mb-2" id="modo">
-              <span><i class="fas fa-sun"></i></span>
-              <span><i class="fas fa-moon"></i></span>              
-            </button>
-            
-                 
-          </div>
-        </div>
-    </nav>
+          </li>
+          {% endif %}              
+        </ul>
+        <button class="modo me-2 mb-2" id="modo">
+          <span><i class="fas fa-sun"></i></span>
+          <span><i class="fas fa-moon"></i></span>              
+        </button>            
+      </div>
+    </div>
+</nav>
     <div class="bg container-fluid mb-4">
         <h1 class="text-center">Contactanos</h1>
         <br>

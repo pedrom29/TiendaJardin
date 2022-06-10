@@ -1,11 +1,24 @@
+
 from django.urls import path
-from .views import home, producto, login, ubication, contacto, register
+from django.urls import include
+
+from django.conf.urls.static import static
+from django.conf import settings
+
+from . import views
+from products.views import ProductListView
+
 
 urlpatterns = [
-    path('', home, name="home"),
-    path('producto', producto, name="producto"),
-    path('login', login, name="login"),
-    path('ubication', ubication, name="ubication"),
-    path('contacto', contacto, name="contacto"),
-    path('register', register, name="register")
+    path('', ProductListView.as_view(), name="home"),    
+    path('login', views.login_view, name="login"),
+    path('logout', views.logout_view, name="logout"),
+    path('ubication', views.ubication, name="ubication"),
+    path('contacto', views.contacto, name="contacto"),
+    path('register', views.register, name="register"),
+    path('productos/', include('products.urls'))
+    
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
