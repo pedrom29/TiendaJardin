@@ -16,7 +16,9 @@ urlpatterns = [
     path('ubication', views.ubication, name="ubication"),
     path('contacto', views.contacto, name="contacto"),
     path('register', views.register, name="register"),
-    path('productos/', include('products.urls'))
+    path('productos/', include('products.urls')),
+    path('api/', include('rest_jardin.urls')),
+    
     
 ]
 
