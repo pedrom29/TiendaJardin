@@ -19,66 +19,7 @@ if(localStorage.getItem('dark-mode') === 'true' ) {
 }else {
     document.body.classList.remove('dark');
     btnSwitch.classList.remove('active');
-}
-
-
-var addZoom = (target) => {
-    
-    let container = document.getElementById(target),
-        imgsrc = container.currentStyle || window.getComputedStyle(container, false);
-        imgsrc = imgsrc.backgroundImage.slice(4, -1).replace(/"/g, "");
-   
-    
-    let img = new Image();
-    img.src = imgsrc;
-    img.onload = () => {
-      // CALCULATE ZOOM RATIO
-      let ratio = img.naturalHeight / img.naturalWidth,
-          percentage = ratio * 100 + "%";
-   
-      // ATTACH ZOOM ON MOUSE MOVE
-      container.onmousemove = (e) => {
-        let rect = e.target.getBoundingClientRect(),
-            xPos = e.clientX - rect.left,
-            yPos = e.clientY - rect.top,
-            xPercent = xPos / (container.clientWidth / 100) + "%",
-            yPercent = yPos / ((container.clientWidth * ratio) / 100) + "%";
-   
-        Object.assign(container.style, {
-          backgroundPosition: xPercent + " " + yPercent,
-          backgroundSize: img.naturalWidth + "px"
-        });
-      };
-   
-      //RESET ZOOM 
-      container.onmouseleave = (e) => {
-        Object.assign(container.style, {
-          backgroundPosition: "center",
-          backgroundSize: "cover"
-        });
-      };
-    }
-  };
-   
-  //  ZOOM
-  window.onload = () => { addZoom("zoomC"); };
-
-
-
-
-
-  const form = document.getElementById('form');
-  const username = document.getElementById('username');
-  const email = document.getElementById('email');
-  const password = document.getElementById('password');
-  const password2 = document.getElementById('password2');
-  
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    
-    checkInputs();
-  });
-  
+}  
   function checkInputs() {
     
     const usernameValue = username.value.trim();
@@ -136,6 +77,8 @@ var addZoom = (target) => {
 function login() {
   var user, pass
 }  
+
+
   
   
   

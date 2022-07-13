@@ -17,9 +17,9 @@ urlpatterns = [
     path('contacto', views.contacto, name="contacto"),
     path('register', views.register, name="register"),
     path('productos/', include('products.urls')),
+    path('carrito/', include('carts.urls')),
     path('api/', include('rest_jardin.urls')),
-    
-    
+       
 ]
 
 if settings.DEBUG:
