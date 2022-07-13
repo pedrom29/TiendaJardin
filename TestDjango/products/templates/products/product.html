@@ -1,4 +1,5 @@
 {% load static %}
+{% url 'carts:cart' as cart %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -29,6 +30,11 @@
             <span><i class="fas fa-bars"></i></i></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              
+
+            </ul>
+            
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
@@ -42,7 +48,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="#footer">Redes</a>
               </li>
+              <li class="navbar-item">
+                <a href="{{ cart }}" class="nav-link">Ver carrito <span class="fas fa-shopping-cart"></span> </a>
+              </li>             
+              
               {% if user.is_authenticated %}
+              
               <li class="navbar-item">
                 <a href="{% url 'logout' %}" class="nav-link">
                   <span ><i class="fas fa-sign-in-alt"></i>cerrar sesión</span>
@@ -66,8 +77,25 @@
             </button>            
           </div>
         </div>
-    </nav>  
-    <div class="bg">   
+    </nav>
+    <div >
+      {%if messages %}
+          {% for message in messages  %}
+            {% if message.tags == 'successs' %}
+              <div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                {{ message }}
+              </div>
+            {% else %}
+              <div class="alert alert-success alert-dismissible fade show">
+                
+                {{ message }}
+              </div>
+            {% endif %}
+          {% endfor %}
+      {% endif %}
+    </div>
+     
 
       <div class="bg">  
         <div>
@@ -104,6 +132,11 @@
             </button>
           </div>
         </div>
+
+
+          
+
+
                 <div class="container-fluid card-group  mt-5 row-cols-sm-1 row-cols-md-4 row cols-lg-3 row-cols-x1-4">
                   <div class="card justify-content-center mb-5">
                       <div class="row g-0">
@@ -112,50 +145,26 @@
                       </div>
                       <div class="col-md-8">
                           <div class="card-body">
-                          <h3 class="card-title">{{ product.title }}</h3><br>
-                          <p class="card-text">{{ product.description }}</p><br>
-                          <h3>${{ product.price }}</h3>
-                          <button type="button" class="btn btn-outline-success">Agregar al carro</button>
-                          <br>                    
-                          <br>                    
-                          <br>                    
-                          <br>                    
-                          <h5 class="text-decoration-underline">Opciones de entrega</h5>
-                          <ul>
-                              <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
-                                  <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                                </svg> Despacho a domicilio <br> <button type="button" class="btn btn-link">Ver disponibilidad</button></li>
-                              <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
-                                  <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
-                                </svg> Retiro en tienda <br> <button type="button" class="btn btn-link">Ver disponibilidad</button></li>
-                          </ul>
+                            <h3 class="card-title">{{ product.title }}</h3><br>
+                            <p class="card-text">{{ product.description }}</p><br>
+                            <h3>${{ product.price }}</h3>
+                            <div>
+                              {% include 'carts/snippets/add.html' %}
+                            </div>
+                            <br>                    
+                            <br>                    
+                            <br>                    
+                            <br>                   
                           
-                          <p class="card-text"><small class="text-muted">Última actualización hace 3 minutos</small></p>
                           </div>
                       </div>
                       </div>
                   </div>
-              </div>  
+                </div>  
 
-            <script>
-              $(document).ready(function() {
-                $('#enviar').click(function(){
-                  $.get("http://127.0.0.1:8000/api/lista_products",
-                    function(data){
-                      $.each(data, function(i, item){
-                        $("#categorias").append("<tr><td>"+item.title+"</td><td>"+item.description+"</td><td><img src='"+item.image+"'>"+"</td></tr>");
-                      });
-                    });
-
-                });   
-              });
-            </script>
-
+           
+            <!--
             <div class="container-fluid">
-              <div class="row">
-                <button type="button" class="btn btn-primary" id="enviar">Traer datos</button>
-              </div>
-
               <div class="row">
                 <table class="table" id="categorias">
                   <thead>
@@ -166,10 +175,13 @@
                     </tr>
                   </thead>  
                 </table>
-              </div>
-              
-              
+              </div>             
             </div>
+            -->
+            
+            
+
+      </div>
 
             
 
@@ -251,4 +263,7 @@
         body.classList.toggle('darkmode');
       });
     </script>
+   
+
+    
 </html>
